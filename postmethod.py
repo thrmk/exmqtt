@@ -281,7 +281,7 @@ client.on_subscribe = on_subscribe
 client.on_unsubscribe = on_unsubscribe
 client.on_connect = on_connect
 client.on_message = on_message
-time.sleep(1)
+#time.sleep(1)
 
 subtop="tracker/device/sub"
 pubtop="tracker/device/pub"
