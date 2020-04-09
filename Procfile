@@ -1,1 +1,1 @@
-web: gunicorn postmethod:server
+web: gunicorn screen:server
