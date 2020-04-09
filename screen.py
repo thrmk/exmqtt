@@ -24,7 +24,7 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import pandas as pd
 #import argparse
-
+from datetime import timedelta 
 num=0
 
 FA ="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -93,7 +93,7 @@ def on_message(client, userdata, message):
     print("payload=",payload)
     data = dict(x.split(": ") for x in payload.split(" , "))
     x=["stamp"]
-    y=[str(datetime.now())]
+    y=[str(datetime.now()+ timedelta(minutes=330))]
     print(x)
     print(y)
     print("len dict=",len(data))
