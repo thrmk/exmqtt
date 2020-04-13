@@ -135,8 +135,8 @@ time.sleep(1)
 subtop="tracker/device/sub"
 pubtop="tracker/device/pub"
 
-#client.connect("127.0.0.1",1883)
-client.connect("ec2-35-162-194-10.us-west-2.compute.amazonaws.com",1883)
+client.connect("mqttmediate.herokuapp.com",1883)
+#client.connect("ec2-35-162-194-10.us-west-2.compute.amazonaws.com",1883)
 #client.connect("iot.smarttrak.info",1883)
 client.loop_start()
 print("in loop")
