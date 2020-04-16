@@ -1,1 +1,1 @@
-web: gunicorn screen:server
+web: gunicorn channel:server
