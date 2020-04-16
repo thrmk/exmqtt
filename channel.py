@@ -282,7 +282,7 @@ def table(devices):
 #df=pd.read_sql("select * from data",connection)
 
 dropdowns=html.Div([
-    html.H4('You can read the data using these dropdown buttons'),
+    html.H4('You can read the data from device using these dropdown buttons'),
     dcc.Dropdown(
         id='devices1',
         options=[
@@ -505,8 +505,8 @@ def update_output(n_clicks):
     if client.publish(pubtop, "R1 Read:sun"):
         return html.Div("sun")"""
    
-#@app.callback(Output("live-update-text", "children"),
-#              [Input("live-update-text", "className")])
+@app.callback(Output("live-update-text", "children"),
+              [Input("live-update-text", "className")])
 
 
 def update_output_div(input_value):
