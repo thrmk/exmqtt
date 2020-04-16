@@ -28,8 +28,8 @@ import pandas as pd
 num=0
 
 FA ="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-LOGO =""#"https://www.tirumala.org/NewImages/TTD-Logo.png"
-LOGO1=""#"https://www.tirumala.org/NewImages/HD-TXT.png"
+LOGO ="https://www.tirumala.org/NewImages/TTD-Logo.png"
+LOGO1="https://www.tirumala.org/NewImages/HD-TXT.png"
 #client = mqtt.Client()
 
 #client.loop_start()
@@ -489,8 +489,8 @@ def update_output(n_clicks):
     if client.publish(pubtop, "R1 Read:sun"):
         return html.Div("sun")"""
    
-#@app.callback(Output("live-update-text", "children"),
-#              [Input("live-update-text", "className")])
+@app.callback(Output("live-update-text", "children"),
+              [Input("live-update-text", "className")])
 
 
 def update_output_div(input_value):
