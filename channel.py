@@ -78,7 +78,8 @@ def on_disconnect(client, userdata, rc):
 #port =443 
 connection = sqlite3.connect('data.db',check_same_thread=False)
 cursor = connection.cursor()
-if cursor.fetchall() is None:
+#if cursor.fetchall() is None:
+if cursor.fetchone()[0]!=1 :
     cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 #cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
