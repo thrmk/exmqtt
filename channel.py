@@ -76,7 +76,7 @@ def on_disconnect(client, userdata, rc):
 #broker_address = "192.168.1.38"
 
 #port =443 
-connection = sqlite3.connect('data.db',check_same_thread=False)
+connection = sqlite3.connect('data.db',check_same_thread=True)
 cursor = connection.cursor()
 if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
