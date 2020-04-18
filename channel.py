@@ -39,9 +39,9 @@ server = flask.Flask(__name__)
 server.config['DEBUG'] = True
 
 #server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-server.secret_key = 'smarttrak'
+#server.secret_key = 'smarttrak'
 
 #db_URI = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 #engine = create_engine(db_URI)
@@ -76,7 +76,7 @@ def on_disconnect(client, userdata, rc):
 #broker_address = "192.168.1.38"
 
 #port =443 
-connection = sqlite3.connect('data.db',check_same_thread=False)
+connection = sqlite3.connect('data.db')#,check_same_thread=False)
 cursor = connection.cursor()
 if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
@@ -85,10 +85,10 @@ if cursor.fetchall() is None:
 #cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 
-def text(data):
-    html.Div([html.H4("{}".format(data))])
+#def text(data):
+#    html.Div([html.H4("{}".format(data))])
 
-text={}
+#text={}
 def on_message(client, userdata, message):
   #global num
   #global n
@@ -121,10 +121,10 @@ def on_message(client, userdata, message):
         except sqlite3.Error as error:
             print("Error: {}".format(error))
         connection.commit()
-    else:
-        text.update(data)
-        """{}""".format(text)
-        print("text update",text)
+   # else:
+ #       text.update(data)
+  #      """{}""".format(text)
+   #     print("text update",text)
 
   #num=num+1
   #n=num
