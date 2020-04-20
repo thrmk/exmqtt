@@ -25,7 +25,29 @@ from datetime import datetime
 import pandas as pd
 #import argparse
 from datetime import timedelta
+import sqlite3
 
+#import click
+from flask import current_app, g
+from flask.cli import with_appcontext
+
+
+def get_db():
+    if 'db' not in g:
+        g.db = sqlite3.connect(
+            current_app.config['DATABASE'],
+            detect_types=sqlite3.PARSE_DECLTYPES
+        )
+        g.db.row_factory = sqlite3.Row
+
+    return g.db
+
+
+def close_db(e=None):
+    db = g.pop('db', None)
+
+    if db is not None:
+        db.close()
 num=0
 
 FA ="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -38,10 +60,10 @@ server = flask.Flask(__name__)
 
 server.config['DEBUG'] = True
 
-server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+#server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-server.secret_key = 'smarttrak'
+#server.secret_key = 'smarttrak'
 
 db_URI = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 engine = create_engine(db_URI)
