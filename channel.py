@@ -67,8 +67,8 @@ server.config['DEBUG'] = True
 
 server.secret_key = 'smarttrak'
 
-#db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
-#engine = create_engine(db_URI)
+db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
+engine = create_engine(db_URI)
 
 api = Api(server)
 #db = SQLAlchemy()
@@ -104,9 +104,9 @@ def on_disconnect(client, userdata, rc):
 cursor = connection.cursor()
 #if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
-#cursor.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
+cursor.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
-cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
+#cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 
 #def text(data):
