@@ -70,8 +70,8 @@ server.secret_key = 'smarttrak'
 #app = Flask(__name__)
 #server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite3')#
 #db = SQLAlchemy(server)
-#db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
-#engine = create_engine(db_URI)
+db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
+engine = create_engine(db_URI)
 
 #api = Api(server)
 #db = SQLAlchemy()
