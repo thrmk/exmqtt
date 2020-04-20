@@ -104,7 +104,7 @@ def on_disconnect(client, userdata, rc):
 cursor = connection.cursor()
 #if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
-cursor.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
+connection.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 #cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
@@ -141,7 +141,7 @@ def on_message(client, userdata, message):
 
         try:
             print("try block")
-            cursor.execute(sql)
+            connection.execute(sql)
         except sqlite3.Error as error:
             print("Error: {}".format(error))
         connection.commit()
