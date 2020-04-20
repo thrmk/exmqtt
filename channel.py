@@ -38,13 +38,13 @@ server = flask.Flask(__name__)
 
 server.config['DEBUG'] = True
 
-#server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-#server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-#server.secret_key = 'smarttrak'
+server.secret_key = 'smarttrak'
 
-#db_URI = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-#engine = create_engine(db_URI)
+db_URI = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+engine = create_engine(db_URI)
 
 api = Api(server)
 #db = SQLAlchemy()
