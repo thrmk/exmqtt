@@ -28,8 +28,8 @@ from datetime import timedelta
 import sqlite3
 
 #import click
-from flask import current_app, g
-from flask.cli import with_appcontext
+#from flask import current_app, g
+#from flask.cli import with_appcontext
 
 
 def get_db():
@@ -56,16 +56,16 @@ LOGO1="https://www.tirumala.org/NewImages/HD-TXT.png"
 #client = mqtt.Client()
 
 #client.loop_start()
-server = flask.Flask(__name__)
+#server = flask.Flask(__name__)
 
-server.config['DEBUG'] = True
+#server.config['DEBUG'] = True
 
 #server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 #server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #server.secret_key = 'smarttrak'
 
-db_URI = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
 engine = create_engine(db_URI)
 
 api = Api(server)
