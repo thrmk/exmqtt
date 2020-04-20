@@ -55,23 +55,25 @@ LOGO ="https://www.tirumala.org/NewImages/TTD-Logo.png"
 LOGO1="https://www.tirumala.org/NewImages/HD-TXT.png"
 #client = mqtt.Client()
 
+connection = sqlite3.connect('data.db',check_same_thread=False)
+
 #client.loop_start()
-#server = flask.Flask(__name__)
+server = flask.Flask(__name__)
 
-#server.config['DEBUG'] = True
+server.config['DEBUG'] = True
 
-#server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-#server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-#server.secret_key = 'smarttrak'
+server.secret_key = 'smarttrak'
 
 db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
 engine = create_engine(db_URI)
 
 api = Api(server)
-#db = SQLAlchemy()
+db = SQLAlchemy()
 
-#db.init_app(server)
+db.init_app(server)
 
 #def stamp1():
 #    return str(datetime.now())
@@ -98,11 +100,11 @@ def on_disconnect(client, userdata, rc):
 #broker_address = "192.168.1.38"
 
 #port =443 
-connection = sqlite3.connect('data.db',check_same_thread=False)
+#connection = sqlite3.connect('data.db',check_same_thread=False)
 cursor = connection.cursor()
-if cursor.fetchall() is None:
+#if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
-    cursor.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
+cursor.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 #cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
