@@ -67,8 +67,8 @@ server.config['DEBUG'] = True
 
 server.secret_key = 'smarttrak'
 
-db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
-engine = create_engine(db_URI)
+#db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
+#engine = create_engine(db_URI)
 
 api = Api(server)
 #db = SQLAlchemy()
