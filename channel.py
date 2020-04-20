@@ -593,7 +593,7 @@ def render_page_content(pathname):
     return [404]
 
 print("global end")
-
+connection.close()
 if __name__=="__main__":
     print("main starts")
     app.run_server(debug=True,port=443)
