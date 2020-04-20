@@ -55,20 +55,21 @@ LOGO ="https://www.tirumala.org/NewImages/TTD-Logo.png"
 LOGO1="https://www.tirumala.org/NewImages/HD-TXT.png"
 #client = mqtt.Client()
 
-connection = sqlite3.connect('data.db',check_same_thread=False)
+connection = sqlite3.connect("data.db",check_same_thread=False)
 
 #client.loop_start()
 server = flask.Flask(__name__)
 
 server.config['DEBUG'] = True
 
-#server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-#server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-basedir = os.path.abspath(os.path.dirname(__file__))
+
+server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#basedir = os.path.abspath(os.path.dirname(__file__))
 server.secret_key = 'smarttrak'
 #app = Flask(__name__)
-server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite3')#
-db = SQLAlchemy(server)
+#server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite3')#
+#db = SQLAlchemy(server)
 #db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
 #engine = create_engine(db_URI)
 
