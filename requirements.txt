@@ -1,6 +1,6 @@
 aniso8601==8.0.0
 attrs==19.3.0
-
+psycopg2-binary==2.8.5
 beautifulsoup4==4.8.2
 bs4==0.0.1
 cached-property==1.5.1
