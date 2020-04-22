@@ -166,7 +166,8 @@ def on_message(client, userdata, message):
         values_list = [data]
         #values_list = [{'stamp':'2', 'name':'ram', 'salary':80000, 'active':False},
          #      {'Id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
-        ResultProxy = connection.execute(query,values_list)
+        #ResultProxy = connection.execute(query,values_list)
+        connection.execute(query,values_list)
         connection.commit()
 
         
