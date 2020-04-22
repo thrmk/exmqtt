@@ -65,18 +65,37 @@ server.config['DEBUG'] = True
 
 server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
 server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-basedir = os.path.abspath(os.path.dirname(__file__))
+#basedir = os.path.abspath(os.path.dirname(__file__))
 #server.secret_key = 'smarttrak'
 #app = Flask(__name__)
 #server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite3:///' + os.path.join(basedir, 'app.sqlite3')#
 #db = SQLAlchemy(server)
-db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
-engine = create_engine(db_URI)
+#db_URI = os.environ.get('DATABASE_URL', 'sqlite3:///data.db')
+#engine = create_engine(db_URI)
 
 api = Api(server)
-#db = SQLAlchemy()
+db = SQLAlchemy()
 
-#db.init_app(server)
+db.init_app(server)
+
+@server.before_first_request
+def create_tables():
+    db.create_all()
+
+class DeviceModel(db.Model):
+    __tablename__ = 'data'
+
+    stamp  = db.Column(db.String(15),primary_key=True)
+    devId = db.Column(db.String(15))
+    SPA = db.Column(db.Float(precision=2))
+    TA= db.Column(db.Float(precision=2))
+
+    def __init__(self,stamp,devId,SPA,TA):
+        self.stamp=stamp
+        self.devId=devId
+        self.SPA= SPA
+        self.TA= TA
+
 
 #def stamp1():
 #    return str(datetime.now())
@@ -107,7 +126,7 @@ def on_disconnect(client, userdata, rc):
 cursor = connection.cursor()
 #if cursor.fetchall() is None:
 #if cursor.fetchone()[0]!=1 :
-connection.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
+#connection.execute("CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
 #cursor.execute("CREATE TABLE data (id INTEGER PRIMARY KEY AUTOINCREMENT,stamp VARCHAR(15), devId VARCHAR(15), SPA VARCHAR(15),TA VARCHAR(15) )")
 
