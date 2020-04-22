@@ -87,9 +87,12 @@ class DeviceModel(db.Model):
 
     stamp  = db.Column(db.String(15),primary_key=True)
     devId = db.Column(db.String(15))
-    SPA = db.Column(db.Float(precision=2))
-    TA= db.Column(db.Float(precision=2))
-
+    #SPA = db.Column(db.Float(precision=2))
+    #TA= db.Column(db.Float(precision=2))
+    SPA = db.Column(db.String(10))
+    TA = db.Column(db.String(10))
+    
+    
     def __init__(self,stamp,devId,SPA,TA):
         self.stamp=stamp
         self.devId=devId
