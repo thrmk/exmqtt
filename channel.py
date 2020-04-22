@@ -162,7 +162,7 @@ def on_message(client, userdata, message):
           print(y)
     print(data)
     if  len(data)>2:
-        sql = "INSERT INTO data ('%s','%s','%s','%s') VALUES ('%s','%s','%s','%s')" % (x[0],x[1],x[2],x[3],y[0],y[1],y[2],y[3])
+        sql = "INSERT INTO %s ('%s','%s','%s','%s') VALUES ('%s','%s','%s','%s')" % (data,x[0],x[1],x[2],x[3],y[0],y[1],y[2],y[3])
 
         try:
             print("try block")
