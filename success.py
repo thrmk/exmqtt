@@ -167,7 +167,8 @@ def on_message(client, userdata, message):
         #values_list = [{'stamp':'2', 'name':'ram', 'salary':80000, 'active':False},
          #      {'Id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
         ResultProxy = connection.execute(query,values_list)
-        
+        connection.commit()
+
         
 """        sql = "INSERT INTO data ('%s','%s','%s','%s') VALUES ('%s','%s','%s','%s')" % (x[0],x[1],x[2],x[3],y[0],y[1],y[2],y[3])
 
