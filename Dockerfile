@@ -23,4 +23,4 @@ COPY . /app
 
 ENTRYPOINT ["python"]
 
-CMD ["app.py"]
+CMD ["bag.py"]
