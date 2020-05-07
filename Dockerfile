@@ -1,6 +1,6 @@
-FROM python:3
+FROM heroku/heroku:18-build AS builder
 
-
+FROM heroku/heroku:18 AS production
 #RUN pip install --no-cache-dir -r requirements.txt
 #RUN apt-get update  
 
@@ -14,10 +14,10 @@ COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-#RUN pip install -r requirements.txt
-
 RUN pip install --no-cache-dir -r requirements.txt
-#RUN apt-get update  
+
+ARG RAILS_ENV=production
+ARG FOO
 
 COPY . /app
 
