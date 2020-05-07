@@ -1,4 +1,4 @@
-FROM heroku/heroku:18
+FROM python:3
 
 #FROM heroku/heroku:18 AS production
 #RUN pip install --no-cache-dir -r requirements.txt
