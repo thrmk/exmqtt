@@ -17,7 +17,7 @@ release:
   image: worker
 run:
   web: bundle exec puma -C config/puma.rb
-  worker: python myworker.py
+  worker: python bag.py
   asset-syncer:
     command:
       - python asset-syncer.py
