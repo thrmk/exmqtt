@@ -1,6 +1,6 @@
-FROM heroku/heroku:18-build AS builder
+FROM heroku/heroku:18
 
-FROM heroku/heroku:18 AS production
+#FROM heroku/heroku:18 AS production
 #RUN pip install --no-cache-dir -r requirements.txt
 #RUN apt-get update  
 
@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ARG RAILS_ENV=production
 ARG FOO
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
 COPY . /app
 
