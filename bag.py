@@ -4,25 +4,25 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import dash
-import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
+#import dash
+#import dash_bootstrap_components as dbc
+#import dash_core_components as dcc
+#import dash_html_components as html
 import sqlite3
 from dash.dependencies import Input, Output, State
 import paho.mqtt.client as mqtt
 import time
 import pandas as pd
-import sqlite3
+#import sqlite3
 import os
 import base64
 from six.moves.urllib.parse import quote
 from sqlalchemy import create_engine
 from datetime import datetime,timedelta
-import unicodedata
-from flask_mqtt import Mqtt
+#import unicodedata
+#from flask_mqtt import Mqtt
 #import socketio
-from flask_socketio import SocketIO
+#from flask_socketio import SocketIO
 FA ="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 
 server = Flask(__name__)
