@@ -89,7 +89,7 @@ def on_message(client, userdata, message):
         "time":str(datetime.today()), 
         "fields": 
         {
-            "message":str(message.payload.encode("utf-8"))
+            "message":str(message.payload.decode("utf-8"))
         }
     }
 ]
