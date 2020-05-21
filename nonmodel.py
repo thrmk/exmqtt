@@ -32,11 +32,11 @@ client1 = InfluxDBClient(host='localhost', port=8086)
 
 #client = InfluxDBClient(host='mydomain.com', port=8086, username='myuser', password='mypass', ssl=True, verify_ssl=True)
 
-client1.create_database('plan')
+client1.create_database('why')
 
 #client.get_list_database()
 
-client1.switch_database('plan')
+client1.switch_database('why')
 
 #[{'fields': {'message': 'hii'}, 'measurement': 'table', 'tags': {'chat': <paho.mqtt.client.Client object at 0x7f196754ff10>}, 'time': '2020-05-20 14:27:27.884088'}]
 
@@ -48,8 +48,8 @@ def insert(messa):
     print(byenbiibbb)
 
 
-query3 = client1.query('select * from ' + 'hi'  + ' where time < now()-' + '1d', chunked=True)
-print(query3)
+#query3 = client1.query('select * from ' + 'hi'  + ' where time < now()-' + '1d', chunked=True)
+#print(query3)
 
 #query1 = client.query('SELECT "duration" FROM "chatting"."autogen"."brushEvents" WHERE time > now() - 4d GROUP BY "user"')
 
@@ -165,8 +165,11 @@ def display(x):
     #print(dfdata)
     #return "{}".format([chatdict['message']])
     #return "{}---{}".format(dfdata.stamp ,dfdata.message)
-    results=client1.query('SELECT "message" FROM "chatting"."autogen"."message_table2" WHERE time > now() - 4d GROUP BY "user"') 
-    return "{}".format(results)
+    #results=client1.query('SELECT "message" FROM "chatting"."autogen"."message_table2" WHERE time > now() - 4d GROUP BY "user"') 
+    if client1.query('SELECT "message" FROM "why"."autogen"."message_table2" WHERE time > now() - 4d GROUP BY "user"'):
+        results=client1.query('SELECT "message" FROM "why"."autogen"."message_table2" WHERE time > now() - 4d GROUP BY "user"') 
+        print(results)
+        return "{}".format(results)
 
 
 @app.callback(
