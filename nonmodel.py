@@ -20,7 +20,7 @@ FA ="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
 
-#server = Flask(__name__)
+server = Flask(__name__)
 #server.config['INFLUXDB_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'influxdb:///plan.db')
 ##server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #db = SQLAlchemy(server)
@@ -138,7 +138,7 @@ client.loop()
 PLOTLY_LOGO =""#https://i2.wp.com/corecommunique.com/wp-content/uploads/2015/09/smarttrak1.png"
 
 #app = dash.Dash(__name__,server=server,external_stylesheets=[dbc.themes.BOOTSTRAP, FA])
-app = dash.Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP, FA])
+app = dash.Dash(__name__,server=server,external_stylesheets=[dbc.themes.BOOTSTRAP, FA])
 
 navbar = dbc.Navbar(html.Div(
     # Use row and col to control vertical alignment of logo / brand
