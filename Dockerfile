@@ -18,10 +18,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 #ARG RAILS_ENV=production
 #ARG FOO
-CMD gunicorn --bind 0.0.0.0:$PORT wsgi
+#CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
 COPY . /app
 
-ENTRYPOINT ["python"]
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
-CMD ["bag.py"]
+#ENTRYPOINT ["python"]
+
+#CMD ["bag.py"]
