@@ -155,8 +155,8 @@ app.config['suppress_callback_exceptions']=True
 app.layout=html.Div([navbar,page_4_write])
 
 
-@app.callback( Output('receive', 'children'),
-                [Input('receive', 'value')])
+#@app.callback( Output('receive', 'children'),
+#                [Input('receive', 'value')])
 def display(x):
     #connectionmess=engine
     #df=pd.read_sql("select * from datatable",connectionmess)
