@@ -1,1 +1,1 @@
-web: gunicorn nonmodel:app
+web: gunicorn nonmodel:server
